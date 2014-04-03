@@ -14,7 +14,12 @@ ruleset a144x171 {
                         "everything" : "magrathean"
                 }
                 key d "Module key"
-                provide keys a,b,c to a144x172
+
+//                provide keys a,b,c to a144x172
+
+		  provide keys a to a144x172
+		  provide keys b to a144x172
+		  provide keys c to a144x172
         }
 
         dispatch {
