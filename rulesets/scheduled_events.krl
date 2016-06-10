@@ -1,4 +1,4 @@
-ruleset countFires {
+nruleset countFires {
 	meta {
 		name "Count Fires"
 		description << Count times a rule fires >>
@@ -32,6 +32,12 @@ ruleset countFires {
 				event:get_history(ev[0]);
 			});
 		}
+
+
+		cancelScheduledEvent = defaction(id) {
+			event:delete(id);
+		}
+
 	}
 
 	rule count {
@@ -99,14 +105,15 @@ ruleset countFires {
 		select when cancel scheduling
 		pre {
 			id = event:attr("id");
+
 		}
 		{
 			send_directive("canceled Schedule")
 				with eventID = id;
-			cancelSchedule(id);
+			cancelScheduledEvent(id);
 		}
 		fired {
-			log("Cancelled Scheduled Event");
+			log("Cancelled Scheduled Event: ", id);
 		}
 	}
 }
