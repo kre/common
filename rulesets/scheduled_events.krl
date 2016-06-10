@@ -1,4 +1,4 @@
-nruleset countFires {
+ruleset countFires {
 	meta {
 		name "Count Fires"
 		description << Count times a rule fires >>
@@ -113,7 +113,7 @@ nruleset countFires {
 			cancelScheduledEvent(id);
 		}
 		fired {
-			log("Cancelled Scheduled Event: ", id);
+			log("Cancelled Scheduled Event: " + id);
 		}
 	}
 }
