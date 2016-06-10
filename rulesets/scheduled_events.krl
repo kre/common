@@ -35,7 +35,9 @@ ruleset countFires {
 
 
 		cancelScheduledEvent = defaction(id) {
-			event:delete(id);
+		  status = event:delete(id);
+		  send_directive("scheduled event canceled") with
+		     id = id;
 		}
 
 	}
