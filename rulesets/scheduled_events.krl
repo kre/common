@@ -47,11 +47,10 @@ ruleset countFires {
 			set ent:count c;
 		}
 	}
-
+do_main
 	rule createSchedule {
 		select when begin scheduling
 		pre {
-			do_main = "do_main";
 			c = ent:count;
 		}
 		{
@@ -59,14 +58,13 @@ ruleset countFires {
 				with count = c;
 		}
 		fired {
-			schedule do_main event night_fire repeat "0 * * * *";
+			schedule do_main event "night_fire" repeat "*/1 * * * *";
 		}
 	}
 
 	rule createRepeating {
 		select when begin repeating
 		pre {
-			do_main = "do_main";
 			recurring = event:attr("recurring");
 			c = ent:count;
 		}
@@ -76,7 +74,7 @@ ruleset countFires {
 				and frequency = recurring;
 		}
 		fired {
-			schedule do_main event night_fire repeat recurring;
+			schedule do_main event "night_fire" repeat recurring;
 		}
 	}
 
