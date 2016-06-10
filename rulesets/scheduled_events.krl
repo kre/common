@@ -58,7 +58,7 @@ ruleset countFires {
 				with count = c;
 		}
 		fired {
-			schedule do_main event "night_fire" repeat "*/1 * * * *";
+			schedule do_main event "night_fire" repeat "* * * * *";
 		}
 	}
 
