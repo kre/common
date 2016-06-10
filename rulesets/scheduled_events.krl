@@ -47,7 +47,7 @@ ruleset countFires {
 			set ent:count c;
 		}
 	}
-do_main
+
 	rule createSchedule {
 		select when begin scheduling
 		pre {
