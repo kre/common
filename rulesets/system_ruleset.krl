@@ -24,7 +24,7 @@ This ruleset controls and gives access to certain system information.
   }
 
   rule reset_rid_usage {
-    select when rid_usage_reset_requested
+    select when system rid_usage_reset_requested
     pre {
       path = event:attr("path").defaultsTo([]);
     }
